@@ -26,7 +26,7 @@ export default function User() {
 
 import React, { useState } from 'react';
 import 'antd/dist/reset.css';
-import { Layout, Typography, Form } from 'antd';
+import { Layout, Typography, Form, Input } from 'antd';
 import { Avatar } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -64,7 +64,7 @@ const User = () => {
           <Content style={{ background: '#e6f4ff', textAlign: 'center', padding: '20px' }}>
               <div>
                 <Form action="edit">
-                  <input
+                  <Input
                     type="text"
                     name="facebook"
                     value={formData.facebook}
