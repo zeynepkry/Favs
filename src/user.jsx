@@ -93,7 +93,7 @@ const User = () => {
                 <p>{userInput}</p>
               </Card>
             </div>
-          </Content>
+        </Content>
           <Footer style={{ background: '#e6f4ff', textAlign: 'center' }}>Footer</Footer>
         </Layout>
       </Layout>
