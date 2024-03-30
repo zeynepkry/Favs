@@ -60,7 +60,7 @@ const User = () => {
      <Layout style={{ minHeight: '100vh' }}>
        <Sider style={{ background: '#85a5ff', textAlign: 'center' }}>
          <div style={{ marginTop: 20 }}>
-           <Avatar size={120} src="https://placekitten.com/g/200/200" />
+           <Avatar size={120} src= " https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
          </div>
          <br />
          <div>
@@ -99,7 +99,7 @@ const User = () => {
                cover={
                  <img
                    alt="example"
-                   src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                   src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                  />
                }
                actions={[
@@ -110,7 +110,7 @@ const User = () => {
              >
                <Meta
                  //avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
-                 title="Card title"
+                 title="BOOKS"
                  description= {userInput}
                />
              </Card>
