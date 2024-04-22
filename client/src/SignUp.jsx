@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import './index.css'
-function LogIn(){
+//import './App.css'
+
+function SignUp(){
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [confirmPassword, setConPassword] = useState('');
   const handleUsername = (event) => {
     setUsername(event.target.value);
   };
@@ -12,11 +13,16 @@ function LogIn(){
     setPassword(event.target.value);
   };
 
-  const handleLogIn = () => {
-    alert('You are in LOGIN page');
+  const handleConPassword = (event) => {
+    setConPassword(event.target.value);
+  };
+  const handleSignUp = () => {
+    alert('You are in SIGNUP page');
     console.log("Username:", username);
     console.log("Password:", password);
+    console.log("Confirm Password:", confirmPassword);
   };
+  
   return(
     <>
       <input 
@@ -32,10 +38,17 @@ function LogIn(){
         value={password}
         onChange={handlePassword}
       />
+      <br />
+      <input
+        type="Confirm Password"
+        placeholder="Confirm Password" 
+        value={confirmPassword}
+        onChange={handleConPassword}
+      />
       <br /> 
-      <button onClick={handleLogIn}>Log In</button>
+      <button onClick={handleSignUp}>Sign Up</button>
+
     </>
   );
 }
-export default LogIn
-
+export default SignUp
