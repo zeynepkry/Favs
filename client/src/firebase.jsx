@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { createUserWithEmailAndPassword, getAuth, updateCurrentUser,setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { getAuth,setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 
 const firebaseConfig = {
@@ -27,21 +27,3 @@ setPersistence(auth, browserSessionPersistence)
   });
 
 export { auth };
-
-
-  /*
-  const createUser = async (name,email,password)=>{
-    await createUserWithEmailAndPassword(auth,email,password);
-    await updateCurrentUser(auth, {displayName: name});
-};
-
-useEffect(()=> {
-  createUser("Joe", "joe@gmail.com","1234567")
-    .then(()=>{
-      console.log("done!");
-    })
-    .catch((e)=>{
-      console.log(e);
-    })
-}, []);
-*/

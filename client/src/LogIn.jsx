@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
+import React, { useState } from 'react'; 
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
+import { auth } from './firebase'; 
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext'; // Import the useAuth hook
+import { useAuth } from './AuthContext'; 
 
 function LogIn() {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { login } = useAuth(); // Access the login function from AuthContext
+  // Access the login function from AuthContext
+  const { login } = useAuth();
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -17,17 +19,19 @@ function LogIn() {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
-  const handleSignUp = () =>{
-    navigate('/signup');
-  }
 
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
+  // Event handler for log in button click
   const handleLogIn = async () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         alert('User logged in successfully!');
-        login(); // Call the login function from AuthContext
-        navigate('/user');
+        login();
+        navigate(`/user/${user.displayName}`);
         console.log('User:', user);
       })
       .catch((error) => {
@@ -40,6 +44,7 @@ function LogIn() {
 
   return (
     <>
+      {/* Email input field */}
       <input
         type="text"
         placeholder="Email"
@@ -47,6 +52,7 @@ function LogIn() {
         onChange={handleEmail}
       />
       <br />
+      {/* Password input field */}
       <input
         type="password"
         placeholder="Password"
@@ -54,8 +60,10 @@ function LogIn() {
         onChange={handlePassword}
       />
       <br />
+      {/* Log in button */}
       <button onClick={handleLogIn}>Log In</button>
       <br />
+      {/* Sign up button */}
       <p>Don't have an account?</p>
       <button onClick={handleSignUp}>Sign up</button>
     </>
@@ -63,67 +71,3 @@ function LogIn() {
 }
 
 export default LogIn;
-
-
-/*
-import { useState } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
-import { useNavigate } from 'react-router-dom';
-function LogIn(){
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [responseData, setResponseData] = useState(null);
-  const navigate = useNavigate();
-  const handleEmail =  (event) => {
-    setEmail(event.target.value);
-
-  };
-
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleLogIn = async() => {
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      alert('User logged in successfully!');
-      //bu yanlis username i baska sekilde almam grekiyor sanirim cunku burda ulasamiyorum usernamee
-      //navigate(`/user/${userCredential.username}`);
-      navigate('/user');
-      console.log('User:', user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
-      console.error(errorCode, errorMessage);
-    });
-
-  };
-  return(
-    <>
-      <input 
-        type="text"
-        placeholder="Email" 
-        value={email}
-        onChange={handleEmail}
-        
-      />
-      <br /> 
-      <input
-        type="password"
-        placeholder="Password" 
-        value={password}
-        onChange={handlePassword}
-      />
-      <br /> 
-      <button onClick={handleLogIn}>Log In</button>
-
-   
-    </>
-  );
-}
-export default LogIn
-*/
